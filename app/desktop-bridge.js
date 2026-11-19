@@ -13,7 +13,7 @@
   var dirty = false;
 
   function baseName(p) { return p ? String(p).split(/[\\/]/).pop() : 'Untitled'; }
-  function updTitle() { D.setTitle((dirty ? '• ' : '') + baseName(currentPath) + ' — KitchenFlow'); }
+  function updTitle() { D.setTitle('KitchenFlow'); }
   function setDirty(v) { v = !!v; if (dirty === v) return; dirty = v; D.setDirty(v); updTitle(); }
 
   /* ---- anything that changes the drawing marks it unsaved ---- */
