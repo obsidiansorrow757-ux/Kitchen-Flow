@@ -1,0 +1,52 @@
+{
+  "name": "kitchenflow",
+  "productName": "KitchenFlow",
+  "version": "1.0.0",
+  "description": "KitchenFlow — kitchen cabinet, countertop and slab layout",
+  "main": "main.js",
+  "author": "Rob",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never",
+    "pack": "electron-builder --win dir --publish never"
+  },
+  "build": {
+    "appId": "com.rob.kitchenflow",
+    "productName": "KitchenFlow",
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*",
+      "build/icon.png"
+    ],
+    "directories": {
+      "buildResources": "build",
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "KitchenFlow",
+      "artifactName": "KitchenFlow-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "KitchenFlow-Portable-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0"
+  }
+}
